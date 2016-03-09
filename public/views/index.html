@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <script type="text/javascript" src="/vendors/angular.min.js"></script>
+    <script type="text/javascript" src="/vendors/angular-route.min.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/controllers/mainController.js"></script>
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css" />
+    <link rel="stylesheet" href="/styles/stylesheet.css" />
+</head>
+
+<body ng-app="myApp">
+<!--<div id="container" ng-controller="HomeController">-->
+<div id="container">
+
+    <header ng-include="'/templates/header.html'"></header>
+    <nav ng-include="'/templates/nav.html'"></nav>
+
+    <main ng-view></main>
+
+    <footer ng-include="'/templates/footer.html'"></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <li>
+            <select name="singleSelect" id="singleSelect" ng-model="meeting" ng-change="chooseMeeting()">
+                <option value="">Select an AA Meeting...</option>
+                <option value="Sahara Club">Sahara Club</option>
+                <option value="Dunn Bros. Coffee Shop">Dunn Bros. Coffee Shop</option>
+                <option value="Byerly&#039;s (1st Floor/Community Rm)">Byerly's</option>
+                <option value="Alano Society of Mpls">Alano Society of Mpls</option>
+                <option value="Robbinsdale Alano">Robbinsdale Alano</option>
+                <option value="Coon Rapids Civic Center">Coon Rapids Civic Center</option>
+                <option value="Blaine Alano">Blaine Alano</option>
+            </select>
+        </li>
+    </div>
+</div>
+<div class="row">
+    <div class="text-center col-md-6 col-md-offset-3" ng-repeat="meeting in meetings">
+        <h2>{{meeting.name}}</h2>
+        <h3>{{meeting.address}}</h3>
+        <h3>{{meeting.city_state}}</h3>
+    </div>
+</div>
