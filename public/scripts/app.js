@@ -13,7 +13,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
         })
         .when('/public_transport_list', {
             templateUrl: '/views/templates/public_transport_list.html',
-            controller: 'MainController'
+            controller: 'TransportController'
         })
         .when('/proximity_list', {
             templateUrl: '/views/templates/proximity_list.html',

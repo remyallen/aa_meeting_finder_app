@@ -15,7 +15,8 @@ mongoose.model(
     new Schema({
             "name": String,
             "address": String,
-            "city_state": String
+            "city_state": String,
+            "transport": Boolean
         },
         {
             collection: 'meeting_information'
@@ -24,9 +25,11 @@ mongoose.model(
 
 var AA_Meeting = mongoose.model('AA_Meeting');
 
-app.get('/get_meeting/:id', function(req, res) {
+app.get('/get_meeting/:name', function(req, res) {
     //console.log('here');
-    AA_Meeting.find({"name" : req.params.id}, function(err, data) {
+    AA_Meeting.find({"name" : req.params.name}, function(err, data) {
+        //results = [];
+        //data.meetings.forEach
         if(err) {
             console.log('ERR: ', err);
         }
@@ -35,6 +38,35 @@ app.get('/get_meeting/:id', function(req, res) {
         //console.log(data);
     });
 });
+
+app.get('/data', function(req, res) {
+    AA_Meeting.find({transport: true}, function(err, data) {
+        if(err) {
+            console.log('ERR: ', err);
+        }
+        res.send(data);
+    });
+});
+
+app.put('/set_transport/:name', function(req, res) {
+    AA_Meeting.update({"name": req.params.name},
+        {
+            $set: {transport: true}
+
+        },
+    function(err, data) {
+        if(err) {
+            console.log('ERR: ', err);
+        }
+
+        res.send(data);
+    }
+    );
+
+});
+
+
+
 
 
 
