@@ -2,10 +2,10 @@ myApp.controller('TransportController', ['$scope', '$http', function($scope, $ht
     console.log('Transport Controller');
 
 
-    $http.get('/data').then(function(response){
+    $http.get('/transport_data').then(function(response){
         var data = response.data;
 
-        $scope.meetings = data;
+        $scope.transportMeetings = data;
 
     });
 

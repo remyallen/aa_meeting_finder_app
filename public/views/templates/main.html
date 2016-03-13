@@ -1,27 +1,62 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <li>
-            <select name="singleSelect" id="singleSelect" ng-model="meeting" ng-change="chooseMeeting()">
-                <option value="">Select an AA Meeting...</option>
-                <option value="Sahara Club">Sahara Club</option>
-                <option value="Dunn Bros. Coffee Shop">Dunn Bros. Coffee Shop</option>
-                <option value="Byerly&#039;s (1st Floor/Community Rm)">Byerly's</option>
-                <option value="Alano Society of Mpls">Alano Society of Mpls</option>
-                <option value="Robbinsdale Alano">Robbinsdale Alano</option>
-                <option value="Coon Rapids Civic Center">Coon Rapids Civic Center</option>
-                <option value="Blaine Alano">Blaine Alano</option>
-            </select>
-        </li>
+        <form>
+
+                <!--<option value="Sahara Club">Sahara Club</option>-->
+                <!--<option value="Dunn Bros. Coffee Shop">Dunn Bros. Coffee Shop</option>-->
+                <!--<option value="Byerly&#039;s (1st Floor/Community Rm)">Byerly's</option>-->
+                <!--<option value="Alano Society of Mpls">Alano Society of Mpls</option>-->
+                <!--<option value="Robbinsdale Alano">Robbinsdale Alano</option>-->
+                <!--<option value="Coon Rapids Civic Center">Coon Rapids Civic Center</option>-->
+                <!--<option value="Blaine Alano">Blaine Alano</option>-->
+        </form>
     </div>
 </div>
 <div class="row">
-    <div class="text-center col-md-6 col-md-offset-3" ng-repeat="aa in meetings">
-        <h2>{{aa.name}}</h2>
-        <h3>{{aa.address}}</h3>
-        <h3>{{aa.city_state}}</h3>
+    <div class="col-md-6 col-md-offset-3">
+        <form>
+            <select ng-model="meetingLocation" ng-options="location as location.name for location in meetingLocationData track by location.name"></select>
+            <select ng-model="meetingTime" ng-options="time as time.label for time in meetingTimes track by time.value"></select>
+            <select ng-model="meetingDay" ng-options="day as day.label for day in meetingDays track by day.value"></select>
+            <button ng-click="selectedData()">Submit</button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="text-center col-md-offset-3" ng-repeat="meeting in searchResults">
+        <h2>{{meeting.name}}</h2>
+        <h3>{{meeting.address}}</h3>
+        <h3>{{meeting.city_state}}</h3>
+        <h3>{{meeting.meetings.time}}</h3>
+        <h3>{{meeting.meetings.day}}</h3>
         <button ng-show="transport == false" ng-click="setTransport(aa.name)">Is this accessible by public transport?</button>
         <p ng-show="set">Thank you! Your response has been recorded.</p>
     </div>
 </div>
+<!--<div class="row">-->
+    <!--<div class="text-center col-md-6 col-md-offset-3" ng-repeat="aa in meetings">-->
+        <!--<h2>{{aa.name}}</h2>-->
+        <!--<h3>{{aa.address}}</h3>-->
+        <!--<h3>{{aa.city_state}}</h3>-->
+        <!--<button ng-show="transport == false" ng-click="setTransport(aa.name)">Is this accessible by public transport?</button>-->
+        <!--<p ng-show="set">Thank you! Your response has been recorded.</p>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="row">-->
+    <!--<div class="text-center col-md-6 col-md-offset-3" ng-repeat="aa_time in times">-->
+        <!--<h2>{{aa_time.name}}</h2>-->
+        <!--<h3>{{aa_time.address}}</h3>-->
+        <!--<h3>{{aa_time.city_state}}</h3>-->
+        <!--&lt;!&ndash;<h3>{{aa_time.meetings.time}}</h3>&ndash;&gt;-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="row">-->
+    <!--<div class="text-center col-md-6 col-md-offset-3" ng-repeat="aa_day in days">-->
+        <!--<h2>{{aa_day.name}}</h2>-->
+        <!--<h3>{{aa_day.address}}</h3>-->
+        <!--<h3>{{aa_day.city_state}}</h3>-->
+    <!--</div>-->
+<!--</div>-->
+
 
 <footer ng-include="'/templates/footer_admin.html'"></footer>
