@@ -1,0 +1,15 @@
+
+<div id="map">
+
+<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+    <ui-gmap-marker ng-repeat="marker in markers"
+        idkey="marker.id"
+        coords="marker.coords"
+        options="marker.options"
+        events="marker.events">
+    </ui-gmap-marker>
+</ui-gmap-google-map>
+
+</div>
+
+<footer ng-include="'/templates/footer_main.html'"></footer>

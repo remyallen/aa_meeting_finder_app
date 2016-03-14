@@ -18,7 +18,9 @@ mongoose.model(
             "city_state": String,
             "transport": Boolean,
             "meetings.time": String,
-            "meetings.day": String
+            "meetings.day": String,
+            "latitude": String,
+            "longitude": String
         },
         {
             collection: 'meeting_information'
@@ -47,6 +49,15 @@ app.post('/search', function(req, res) {
             console.log('ERR: ', err);
         }
 
+        res.send(data);
+    });
+});
+
+app.get('/get_coordinates', function(req, res) {
+    AA_Meeting.find({}, function(err, data) {
+        if(err) {
+            console.log('ERR: ', err);
+        }
         res.send(data);
     });
 });
