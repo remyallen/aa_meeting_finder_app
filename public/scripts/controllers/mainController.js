@@ -2,6 +2,8 @@ myApp.controller('MainController', ['$scope', '$http', function($scope, $http) {
 
     console.log('Main Controller');
 
+    $scope.meetings = {}; //Always as all meetings found
+
     //$scope.selectedMeeting = '';
     $scope.meetingLocation = '';
     $scope.meetingTime = '';
@@ -23,6 +25,20 @@ myApp.controller('MainController', ['$scope', '$http', function($scope, $http) {
         {"value":"3","label":"Wednesday"},{"value":"4","label":"Thursday"},{"value":"5","label":"Friday"},
         {"value":"6","label":"Saturday"}];
 
+    $scope.selectLocation = function() {
+        $scope.selected = $scope.meetingLocation;
+        $scope.meetingTimes = $scope.selected.meetings;
+
+        $scope.searchResults = [$scope.selected];
+
+        //$scope.searchResults = $scope.selected;
+        console.log($scope.selected);
+    };
+
+    $scope.selectTime = function() {
+
+    };
+
     $scope.selectedData = function() {
         var selectedMeeting = {
             name: $scope.meetingLocation.name,
@@ -33,40 +49,22 @@ myApp.controller('MainController', ['$scope', '$http', function($scope, $http) {
         //console.log(selectedMeeting);
         $http.post('/search', selectedMeeting).then(function (response) {
             $scope.searchResults = response.data;
+            $scope.meetings = $scope.searchResults;
             console.log($scope.searchResults);
+            //$scope.meetingLocation = null;
+            //$scope.meetingTime = null;
+            //$scope.meetingDay = null;
+
         });
 
-        //console.log($scope.meetingLocation, $scope.meetingTime, $scope.meetingDay);
-        //var selectedLocation = $scope.meetingLocation.name;
-        //var selectedTime = $scope.meetingTime.value;
-        //var selectedDay = $scope.meetingDay.value;
-        //getData(selectedLocation, selectedTime, selectedDay);
+
     };
-    //function getData() {
-    //    $http.get('/search').then(function (response) {
-    //        $scope.searchResults = response.data;
-    //        console.log($scope.searchResults);
-    //    });
-    //};
 
 
     $http.get('/get_meeting_location').then(function(response) {
         $scope.meetingLocationData = response.data;
     });
 
-
-    //$scope.chooseMeeting = function() {
-    //    console.log($scope.meetingLocation);
-    //    var selectedMeeting = $scope.meetingLocation;
-    //    getMeeting(selectedMeeting);
-    //};
-    //function getMeeting(selectedMeeting) {
-    //    $http.get('/get_meeting/' + encodeURIComponent(selectedMeeting)).then(function(response) {
-    //        $scope.meetings = response.data;
-    //        console.log($scope.meetings);
-    //
-    //    });
-    //}
 
     $scope.setTransport = function (id) {
         console.log(id);
@@ -77,17 +75,5 @@ myApp.controller('MainController', ['$scope', '$http', function($scope, $http) {
         $scope.set = true;
         $scope.transport = true;
     };
-
-    //$scope.chooseTime = function() {
-    //    var selectedTime = $scope.meetingTime.value;
-    //    getTime(selectedTime);
-    //};
-    //function getTime(selectedTime) {
-    //    $http.get('get_time/' + selectedTime).then(function(response) {
-    //        $scope.times = response.data;
-    //    });
-    //}
-
-
 
 }]);

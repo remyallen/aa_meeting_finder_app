@@ -41,9 +41,7 @@ app.get('/get_meeting_location', function(req, res) {
 
 app.post('/search', function(req, res) {
     console.log(req.body);
-    //AA_Meeting.find({$and:[{name: "Sahara Club"},{"meetings.time": "5:30 pm"},{"meetings.day": "2"}]}, function(err, data) {
     AA_Meeting.find({$or:[{name: req.body.name},{"meetings.time": req.body.time},{"meetings.day": req.body.day}]}, function(err, data) {
-    //AA_Meeting.find({"name": req.body.name}, function(err, data) {
 
         if(err) {
             console.log('ERR: ', err);
@@ -62,31 +60,6 @@ app.get('/get_coordinates', function(req, res) {
     });
 });
 
-
-
-//app.get('/get_meeting/:name', function(req, res) {
-//    //console.log('here');
-//    AA_Meeting.find({"name" : req.params.name}, function(err, data) {
-//        //results = [];
-//        //data.meetings.forEach
-//        if(err) {
-//            console.log('ERR: ', err);
-//        }
-//
-//        res.send(data);
-//        //console.log(data);
-//    });
-//});
-
-//app.get('/get_time/:time', function(req, res) {
-//    AA_Meeting.find({"meetings.time" : req.params.time}, function(err, data) {
-//        if(err) {
-//            console.log('ERR: ', err);
-//        }
-//
-//        res.send(data);
-//    });
-//});
 
 app.get('/transport_data', function(req, res) {
     AA_Meeting.find({transport: true}, function(err, data) {
@@ -113,9 +86,6 @@ app.put('/set_transport/:name', function(req, res) {
     );
 
 });
-
-
-
 
 
 
