@@ -6,7 +6,7 @@ myApp.controller('ProximityController', ['$scope', '$http', 'uiGmapGoogleMapApi'
     // The "then" callback function provides the google.maps object.
     uiGmapGoogleMapApi.then(function(maps) {
         console.log('here');
-        $scope.map = { center: { latitude: 44.977753, longitude: -93.265011 }, zoom: 8 };
+        $scope.map = { center: { latitude: 44.977753, longitude: -93.265011 }, zoom: 10 };
 
 
         $scope.markers = [];

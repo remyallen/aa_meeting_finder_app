@@ -8,7 +8,8 @@ myApp.controller('MainController', ['$scope', '$http', function($scope, $http) {
     $scope.meetingLocation = '';
     $scope.meetingTime = '';
     $scope.meetingDay = '';
-    $scope.set = false;
+    $scope.meeting = {};
+    $scope.meeting.set = false;
     $scope.transport = false;
     $scope.meetingTimes = [{"value":"6:00 am","label":"6:00 am"},{"value":"6:30 am","label":"6:30 am"},{"value":"7:00 am","label":"7:00 am"},
         {"value":"7:30 am","label":"7:30 am"},{"value":"8:00 am","label":"8:00 am"},{"value":"8:30 am","label":"8:30 am"},
@@ -36,13 +37,22 @@ myApp.controller('MainController', ['$scope', '$http', function($scope, $http) {
     };
 
     $scope.selectTime = function() {
+        $scope.selectedTime = $scope.meetingTime;
+        console.log($scope.meetingTime);
+        $scope.displayMeetingDetails = {
+            name: $scope.selected.name,
+            address: $scope.selected.address,
+            city_state: $scope.selected.city_state,
+            meetings: [$scope.selectedTime]
+        }
+        $scope.searchResults = [$scope.displayMeetingDetails];
 
     };
 
     $scope.selectedData = function() {
         var selectedMeeting = {
-            name: $scope.meetingLocation.name,
-            time: $scope.meetingTime.value,
+            //name: $scope.meetingLocation.name,
+            //time: $scope.meetingTime.value,
             day: $scope.meetingDay.value
 
         };
@@ -66,14 +76,14 @@ myApp.controller('MainController', ['$scope', '$http', function($scope, $http) {
     });
 
 
-    $scope.setTransport = function (id) {
-        console.log(id);
-        $http.put('/set_transport/' + id, {"transport": true}).then(function(response) {
+    $scope.setTransport = function (meeting) {
+
+        $http.put('/set_transport/' + meeting.name, {"transport": true}).then(function(response) {
             console.log('sent to database');
 
         });
-        $scope.set = true;
-        $scope.transport = true;
+        meeting.set = true;
+        meeting.transport = true;
     };
 
 }]);

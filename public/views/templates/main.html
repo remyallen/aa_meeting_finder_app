@@ -8,7 +8,7 @@
         </form>
     </div>
 </div>
-{{selected.name}}
+
 <div class="row">
     <div class="text-center col-md-offset-3" ng-repeat="meeting in searchResults">
         <h2>{{meeting.name}}</h2>
@@ -19,8 +19,8 @@
             <h3>{{info.name}}</h3>
         </div>
 
-        <button ng-show="transport == false" ng-click="setTransport(aa.name)">Is this accessible by public transport?</button>
-        <p ng-show="set">Thank you! Your response has been recorded.</p>
+        <button ng-show="meeting.transport == false || meeting.transport == undefined" ng-click="setTransport(meeting)">Is this accessible by public transport?</button>
+        <p ng-show="meeting.set">Thank you! Your response has been recorded.</p>
     </div>
 </div>
 

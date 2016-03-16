@@ -5,3 +5,8 @@
 .marker-label {
     font-size: 15px;
 }
+
+body {
+    width: 900px;
+    margin: auto;
+}
