@@ -2,6 +2,7 @@ myApp.controller('MainController', ['$scope', '$http', function($scope, $http) {
 
     console.log('Main Controller');
 
+
     $scope.meetings = {}; //Always as all meetings found
 
     //$scope.selectedMeeting = '';

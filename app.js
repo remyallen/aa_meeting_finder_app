@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 //var connectionString = require('./modules/connection');
+var keys = require('./config/keys');
 
 
 app.use(bodyParser.json());
@@ -86,6 +87,10 @@ app.put('/set_transport/:name', function(req, res) {
     );
 
 });
+
+app.get('/api_key', function(req, res) {
+    res.send(keys);
+})
 
 
 

@@ -1,29 +1,58 @@
 <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <form>
-            <select ng-model="meetingDay" ng-options="day as day.label for day in meetingDays track by day.value" ng-change="selectedData()"><option value="">Meeting Day</option></select>
-            <select ng-model="meetingLocation" ng-options="location as location.name for location in searchResults track by location.name" ng-change="selectLocation()"><option value="">Meeting Location</option></select>
-            <select ng-model="meetingTime" ng-options="meeting as meeting.time for meeting in meetingTimes" ng-change="selectTime()"><option value="">Meeting Time</option></select>
+    <!--<div class="col-md-6 col-md-offset-3">-->
+        <form class="col-md-12 text-center form-inline">
+            <select class="col-md-4 form-control" ng-model="meetingDay" ng-options="day as day.label for day in meetingDays track by day.value" ng-change="selectedData()"><option value="">Meeting Day</option></select>
+            <select class="col-md-4 form-control" ng-model="meetingLocation" ng-options="location as location.name for location in searchResults track by location.name" ng-change="selectLocation()"><option value="">Meeting Location</option></select>
+            <select class="col-md-4 form-control" ng-model="meetingTime" ng-options="meeting as meeting.time for meeting in meetingTimes" ng-change="selectTime()"><option value="">Meeting Time</option></select>
             <!--<button ng-click="selectedData()">Submit</button>-->
         </form>
-    </div>
+    <!--</div>-->
 </div>
 
 <div class="row">
-    <div class="text-center col-md-offset-3" ng-repeat="meeting in searchResults">
-        <h2>{{meeting.name}}</h2>
-        <h3>{{meeting.address}}</h3>
-        <h3>{{meeting.city_state}}</h3>
-        <div ng-repeat="info in meeting.meetings">
-            <h3>{{info.time}}</h3>
-            <h3>{{info.name}}</h3>
+    <div class="text-center" ng-repeat="meeting in searchResults">
+        <p><h3>{{meeting.name}}</h3><br/>
+               {{meeting.address}}<br/>
+               {{meeting.city_state}}<br/></p>
+        <div class="meeting" ng-repeat="info in meeting.meetings">
+            <p>{{info.time}}<br/>
+               {{info.name}}</p>
+
         </div>
 
-        <button ng-show="meeting.transport == false || meeting.transport == undefined" ng-click="setTransport(meeting)">Is this accessible by public transport?</button>
+        <button class="btn btn-primary" ng-show="meeting.transport == false || meeting.transport == undefined" ng-click="setTransport(meeting)">Is this location accessible by public transport?</button>
         <p ng-show="meeting.set">Thank you! Your response has been recorded.</p>
     </div>
 </div>
 
+<!--<div class="container">-->
+<!--<table class="table">-->
+    <!--<thead>-->
+    <!--<tr>-->
+        <!--<th>Firstname</th>-->
+        <!--<th>Lastname</th>-->
+        <!--<th>Email</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr>-->
+        <!--<td>John</td>-->
+        <!--<td>Doe</td>-->
+        <!--<td>john@example.com</td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td>Mary</td>-->
+        <!--<td>Moe</td>-->
+        <!--<td>mary@example.com</td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td>July</td>-->
+        <!--<td>Dooley</td>-->
+        <!--<td>july@example.com</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+<!--</table>-->
+<!--</div>-->
 
 
-<footer ng-include="'/templates/footer_admin.html'"></footer>
+<!--<footer ng-include="'/templates/footer_admin.html'"></footer>-->

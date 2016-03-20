@@ -15,18 +15,19 @@
 
     <link rel="stylesheet" href="/vendors/bootstrap.min.css" />
     <link rel="stylesheet" href="/styles/stylesheet.css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Old+Standard+TT' rel='stylesheet' type='text/css'>
 </head>
 
 <body ng-app="myApp">
-<!--<div id="container" ng-controller="HomeController">-->
-    <div id="container">
 
+    <!--<div id="container">-->
         <header ng-include="'/templates/header.html'"></header>
-        <nav ng-include="'/templates/nav.html'"></nav>
+        <!--<nav ng-include="'/templates/nav.html'"></nav>-->
+    <!--</div>-->
 
         <main ng-view></main>
 
-    </div>
 
 </body>
 </html>

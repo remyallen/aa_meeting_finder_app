@@ -1,12 +1,171 @@
+/*div {*/
+    /*border: 1px solid #000;*/
+/*}*/
+
+
 .angular-google-map-container {
-    height: 400px;
+    height: 600px;
 }
 
 .marker-label {
     font-size: 15px;
 }
 
-body {
-    width: 900px;
-    margin: auto;
+/*body {*/
+    /*background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url('http://i.telegraph.co.uk/multimedia/archive/03169/AA_3169499b.jpg');*/
+    /*min-height:100%;*/
+    /*background-size:cover;*/
+    /*height: 100vh;*/
+/*}*/
+
+/*.jumbotron {*/
+    /*background: none;*/
+/*}*/
+
+nav {
+    /*margin: 0 0 3rem 0;*/
+    padding: 0 0 3rem 0;
+    background: #000000;
+}
+
+.meeting:nth-child(2n+1) {
+    background-color: #eeeeee;
+}
+
+/*body {*/
+    /*width: 900px;*/
+    /*margin: auto;*/
+/*}*/
+
+.form-inline .form-control {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 2rem;
+    height: auto;
+    padding: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 1em;
+}
+
+.form-control {
+    width: 30%;
+}
+
+.logo {
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 50px;
+}
+
+nav li {
+    display: inline-block;
+    margin: 20px 3em;
+    float: right;
+}
+
+nav ul{
+    width: 92%;
+    margin: 0 auto;
+    padding-left: 0;
+}
+
+nav a{
+    color: #c12e2a;
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: 'Old Standard TT', serif;
+}
+
+nav h2{
+    color: goldenrod;
+}
+
+.document {
+    padding-top: 30px;
+}
+
+.document .row {
+    padding-bottom: 30px;
+}
+
+.well {
+    height: 100px;
+}
+
+/*a .download {*/
+    /*width: 10px;*/
+    /*height: 10px;*/
+    /*display: block;*/
+    /*float: left;*/
+/*}*/
+/*a {*/
+    /*color: #555;*/
+    /*text-decoration: none;*/
+    /*font-size: 2rem;*/
+/*}*/
+
+select {
+    width:250px;
+}
+
+form {
+    background-color: #737373;
+}
+
+
+@media (min-width: 768px) {
+    .form-inline .form-group {
+        display:inline-block;
+        margin-bottom: 0;
+        vertical-align: middle
+    }
+
+    .form-inline .form-control {
+        display: inline-block;
+        width: 27%;
+        vertical-align: middle
+    }
+
+    .form-inline .form-control-static {
+        display: inline-block
+    }
+
+    .form-inline .input-group {
+        display: inline-table;
+        vertical-align: middle
+    }
+
+    .form-inline .input-group .form-control,.form-inline .input-group .input-group-addon,.form-inline .input-group .input-group-btn {
+        width: auto
+    }
+
+    .form-inline .input-group>.form-control {
+        width: 100%
+    }
+
+    .form-inline .control-label {
+        margin-bottom: 0;
+        vertical-align: middle
+    }
+
+    .form-inline .checkbox,.form-inline .radio {
+        display: inline-block;
+        margin-top: 0;
+        margin-bottom: 0;
+        vertical-align: middle
+    }
+
+    .form-inline .checkbox label,.form-inline .radio label {
+        padding-left: 0
+    }
+
+    .form-inline .checkbox input[type=checkbox],.form-inline .radio input[type=radio] {
+        position: relative;
+        margin-left: 0
+    }
+
+    .form-inline .has-feedback .form-control-feedback {
+        top: 0
+    }
 }

@@ -27,9 +27,10 @@ myApp.config(['$routeProvider', function($routeProvider) {
 }]);
 
 myApp.config(function(uiGmapGoogleMapApiProvider) {
-    uiGmapGoogleMapApiProvider.configure({
-        key: 'AIzaSyBv4cdjE0ZW5jH9IE5VqLNC4wdij2GaB2k',
-        v: '3.20', //defaults to latest 3.X anyhow
-        libraries: 'weather,geometry,visualization'
-    });
+        uiGmapGoogleMapApiProvider.configure({
+            key: 'AIzaSyBv4cdjE0ZW5jH9IE5VqLNC4wdij2GaB2k',
+            v: '3.20', //defaults to latest 3.X anyhow
+            libraries: 'weather,geometry,visualization'
+        });
+
 });
