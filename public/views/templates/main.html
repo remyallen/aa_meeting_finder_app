@@ -9,50 +9,47 @@
     <!--</div>-->
 </div>
 
-<div class="row">
-    <div class="text-center" ng-repeat="meeting in searchResults">
-        <p><h3>{{meeting.name}}</h3><br/>
-               {{meeting.address}}<br/>
-               {{meeting.city_state}}<br/></p>
-        <div class="meeting" ng-repeat="info in meeting.meetings">
-            <p>{{info.time}}<br/>
-               {{info.name}}</p>
+<!--<div class="row">-->
+    <!--<div class="text-center" ng-repeat="meeting in searchResults">-->
+        <!--<p><h3>{{meeting.name}}</h3><br/>-->
+               <!--{{meeting.address}}<br/>-->
+               <!--{{meeting.city_state}}<br/></p>-->
+        <!--<div class="meeting" ng-repeat="info in meeting.meetings">-->
+            <!--<p>{{info.time}}<br/>-->
+               <!--{{info.name}}</p>-->
 
-        </div>
+        <!--</div>-->
 
-        <button class="btn btn-primary" ng-show="meeting.transport == false || meeting.transport == undefined" ng-click="setTransport(meeting)">Is this location accessible by public transport?</button>
-        <p ng-show="meeting.set">Thank you! Your response has been recorded.</p>
-    </div>
-</div>
-
-<!--<div class="container">-->
-<!--<table class="table">-->
-    <!--<thead>-->
-    <!--<tr>-->
-        <!--<th>Firstname</th>-->
-        <!--<th>Lastname</th>-->
-        <!--<th>Email</th>-->
-    <!--</tr>-->
-    <!--</thead>-->
-    <!--<tbody>-->
-    <!--<tr>-->
-        <!--<td>John</td>-->
-        <!--<td>Doe</td>-->
-        <!--<td>john@example.com</td>-->
-    <!--</tr>-->
-    <!--<tr>-->
-        <!--<td>Mary</td>-->
-        <!--<td>Moe</td>-->
-        <!--<td>mary@example.com</td>-->
-    <!--</tr>-->
-    <!--<tr>-->
-        <!--<td>July</td>-->
-        <!--<td>Dooley</td>-->
-        <!--<td>july@example.com</td>-->
-    <!--</tr>-->
-    <!--</tbody>-->
-<!--</table>-->
+        <!--<button class="btn btn-primary" ng-show="meeting.transport == false || meeting.transport == undefined" ng-click="setTransport(meeting)">Is this location accessible by public transport?</button>-->
+        <!--<p ng-show="meeting.set">Thank you! Your response has been recorded.</p>-->
+    <!--</div>-->
 <!--</div>-->
+
+<div class="container">
+<table class="table">
+    <thead>
+    <tr>
+        <th>Location Name</th>
+        <th>Address</th>
+        <th>City State</th>
+        <th>Times</th>
+        <th>Meeting Name</th>
+    </tr>
+    </thead>
+    <tbody class="bordered" ng-repeat="meeting in searchResults">
+    <tr  ng-repeat="info in meeting.meetings">
+        <td>{{meeting.name}}</td>
+        <td>{{meeting.address}}</td>
+        <td>{{meeting.city_state}}</td>
+
+        <td>{{info.time}}</td>
+        <td>{{info.name}}</td>
+    </tr>
+    <td><button class="btn btn-primary" ng-show="meeting.transport == false || meeting.transport == undefined" ng-click="setTransport(meeting)">Is this location accessible by public transport?</button>
+        <p ng-show="meeting.set">Thank you! Your response has been recorded.</p></td>
+    </tbody>
+</table>
+</div>
 
 
 <!--<footer ng-include="'/templates/footer_admin.html'"></footer>-->

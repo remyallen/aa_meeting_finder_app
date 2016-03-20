@@ -2,9 +2,16 @@
     /*border: 1px solid #000;*/
 /*}*/
 
+body {
+    background-color: #bbbbbb;
+}
+
 
 .angular-google-map-container {
     height: 600px;
+    width: 90%;
+    margin: auto;
+
 }
 
 .marker-label {
@@ -29,7 +36,11 @@ nav {
 }
 
 .meeting:nth-child(2n+1) {
-    background-color: #eeeeee;
+    background-color: #f9f9f9;
+}
+
+tbody.bordered {
+    border-bottom: 5px solid #000;
 }
 
 /*body {*/
@@ -71,7 +82,7 @@ nav ul{
 }
 
 nav a{
-    color: #c12e2a;
+    color: #3e8f3e;
     text-decoration: none;
     font-size: 2rem;
     font-family: 'Old Standard TT', serif;
@@ -91,6 +102,8 @@ nav h2{
 
 .well {
     height: 100px;
+    background-color: #3e8f3e;
+    color: #0f0f0f;
 }
 
 /*a .download {*/
