@@ -10,10 +10,14 @@ var keys = require('./config/keys');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-mongoose.connect('mongodb://localhost/aa_meeting_finder');
+//mongoose.connect('mongodb://localhost/aa_meeting_finder');
+mongoose.connect(process.env.MONGODB_URI);
+ //mongoose.connect('mongodb://remy_allen:jfc9r64v@ds047762.mlab.com:47762/heroku_kmr7fkdj');
+
 mongoose.model(
     'AA_Meeting',
     new Schema({
+
             "name": String,
             "address": String,
             "city_state": String,
@@ -90,7 +94,7 @@ app.put('/set_transport/:name', function(req, res) {
 
 app.get('/api_key', function(req, res) {
     res.send(keys);
-})
+});
 
 
 

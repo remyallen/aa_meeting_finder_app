@@ -45,7 +45,7 @@ myApp.controller('MainController', ['$scope', '$http', function($scope, $http) {
             address: $scope.selected.address,
             city_state: $scope.selected.city_state,
             meetings: [$scope.selectedTime]
-        }
+        };
         $scope.searchResults = [$scope.displayMeetingDetails];
 
     };
